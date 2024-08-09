@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제 채점기 - {{ selected_quiz }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="selected-quiz">{{ selected_quiz }}</h1>
+        <!-- 결과 메시지의 기본 상태 추가 -->
+        <p class="result-message {% if result == '정답입니다' %}result-correct{% elif result == '오답입니다' %}result-incorrect{% endif %}">
+            {% if result is not none %}
+                {{ result }}
+            {% else %}
+                문항 번호를 입력해주세요
+            {% endif %}
+        </p>
+        <form method="post">
+            <input autocomplete="off" type="text" id="question_number" name="question_number" required>
+            <br>
+            <div class="radio-group">
+                    <input type="radio" id="answer1" name="user_answer" value="1" required><label for="answer1" class="radio-button">1</label>
+                    <input type="radio" id="answer2" name="user_answer" value="2"><label for="answer2" class="radio-button">2</label>
+                    <input type="radio" id="answer3" name="user_answer" value="3"><label for="answer3" class="radio-button">3</label>
+                    <input type="radio" id="answer4" name="user_answer" value="4"><label for="answer4" class="radio-button">4</label>
+                    <input type="radio" id="answer5" name="user_answer" value="5"><label for="answer5" class="radio-button">5</label>
+            </div>
+            <br>
+            <input type="submit" value="제출하기">
+        </form>        
+    
+        <!-- 돌아가기 버튼 추가 -->
+        <a href="/" class="back-button">문제집 선택화면으로 돌아가기</a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

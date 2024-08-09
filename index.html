@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제 채점기</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>문제집을 선택해주세요</h1>
+        <div class="quiz-selection">
+            <a href="/quiz/자이스토리 영어 독해 기본" class="quiz-item">
+                <img src="{{ url_for('static', filename='images/quiz1.jpg') }}" class="quiz-image" alt="Quiz 1">
+                <div class="quiz-title">자이스토리 영어 독해 기본</div>
+            </a>
+            <a href="/quiz/자이스토리 영어 독해 완성" class="quiz-item">
+                <img src="{{ url_for('static', filename='images/quiz2.jpg') }}" class="quiz-image" alt="Quiz 2">
+                <div class="quiz-title">자이스토리 영어 독해 완성</div>
+            </a>
+            <a href="/quiz/자이스토리 영어 독해 실전" class="quiz-item">
+                <img src="{{ url_for('static', filename='images/quiz3.jpg') }}" class="quiz-image" alt="Quiz 3">
+                <div class="quiz-title">자이스토리 영어 독해 실전</div>
+            </a>
+            <!-- Add more quiz items as needed -->
+        </div>
+    </div>
+</body>
+</html>
